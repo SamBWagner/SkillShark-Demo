@@ -710,6 +710,176 @@
             color: var(--text-primary);
         }
 
+        .profile-section {
+            margin-bottom: 24px;
+        }
+
+        .profile-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .profile-header {
+            display: flex;
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .profile-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--ssw-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .profile-info-header {
+            flex: 1;
+        }
+
+        .profile-name-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .profile-role-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        .profile-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-stat-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ssw-red);
+        }
+
+        .profile-stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .profile-bio {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .profile-skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .profile-certification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .profile-cert-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            border-left: 3px solid #4caf50;
+        }
+
+        .profile-cert-icon {
+            font-size: 24px;
+        }
+
+        .profile-cert-details {
+            flex: 1;
+        }
+
+        .profile-cert-code {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .profile-cert-name {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .profile-recent-activity {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .profile-activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+        }
+
+        .profile-activity-icon {
+            font-size: 20px;
+        }
+
+        .profile-activity-text {
+            flex: 1;
+        }
+
+        .profile-activity-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .profile-activity-time {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .clickable-avatar {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .clickable-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .clickable-name {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .clickable-name:hover {
+            color: var(--ssw-red);
+        }
+
         .stale-notification {
             background: #fff8e1;
             border-left: 4px solid #ffb74d;
@@ -999,16 +1169,16 @@
             </div>
             <div class="header-nav">
                 <button class="nav-tab active" onclick="switchTab('home')">🏠 Home</button>
-                <button class="nav-tab" onclick="switchTab('challenges')">🎯 Challenges</button>
-                <button class="nav-tab" onclick="switchTab('mySkills')">💡 My Skills</button>
-                <button class="nav-tab" onclick="switchTab('findPeople')">👥 Find People</button>
-                <button class="nav-tab" onclick="switchTab('admin')">⚙️ Admin</button>
+                <button class="nav-tab" onclick="switchTab('challenges')">🌊 Deep Dives</button>
+                <button class="nav-tab" onclick="switchTab('mySkills')">🦈 My Skills</button>
+                <button class="nav-tab" onclick="switchTab('findPeople')">🐟 The School</button>
+                <button class="nav-tab" onclick="switchTab('admin')">⚙️ Admin
             </div>
             <div class="user-info">
-                <a href="https://www.ssw.com.au/people/sam-wagner/" target="_blank" rel="noopener noreferrer" class="profile-link">
+                <div class="profile-link" style="cursor: pointer;" onclick="showProfile('Sam Wagner')">
                     <span id="userName">Sam Wagner</span>
-                    <div class="avatar" id="userAvatar">SW</div>
-                </a>
+                    <div class="avatar clickable-avatar" id="userAvatar">SW</div>
+                </div>
             </div>
         </div>
     </header>
@@ -1016,8 +1186,8 @@
     <div class="container" style="padding-top: 10px;">
         <div class="progress-bar-container">
             <div class="progress-bar-header" onclick="toggleProgressDropdown()" style="cursor: pointer;">
-                <div class="progress-bar-title">🎓 Azure Certifications Progress - Company Goal</div>
-                <div class="progress-bar-stats">SSW needs <span id="certTotal">0</span> AZ-200+ certifications (<span id="certCount">0</span> completed)</div>
+                <div class="progress-bar-title">🎯 Hunting Licenses Progress - Company Goal</div>
+                <div class="progress-bar-stats">SSW needs <span id="certTotal">0</span> AZ-200+ hunting licenses (<span id="certCount">0</span> acquired)</div>
             </div>
             <div class="progress-bar" onclick="toggleProgressDropdown()" style="cursor: pointer;">
                 <div class="progress-bar-fill" id="progressBarFill" style="width: 0%">
@@ -1032,8 +1202,8 @@
         <div id="homeTab" class="tab-content active">
             <div class="featured-challenges">
                 <div class="featured-challenges-header">
-                    <div class="featured-challenges-title">🔥 Hot Challenges</div>
-                    <a href="#" class="view-all-link" onclick="switchTab('challenges'); return false;">View All →</a>
+                    <div class="featured-challenges-title">🔥 Hot Deep Dives</div>
+                    <a href="#" class="view-all-link" onclick="switchTab('challenges'); return false;">All Deep Dives →</a>
                 </div>
                 <div class="featured-challenges-grid" id="featuredChallengesGrid"></div>
             </div>
@@ -1041,8 +1211,8 @@
             <div class="activity-feed-container">
                 <div class="activity-feed-header">
                     <div>
-                        <div class="activity-feed-title">📰 Team Activity Feed</div>
-                        <div class="activity-feed-subtitle">See what your teammates are learning and achieving</div>
+                        <div class="activity-feed-title">🌊 The Current</div>
+                        <div class="activity-feed-subtitle">See what your school is learning and achieving</div>
                     </div>
                 </div>
                 <div class="activity-feed" id="activityFeed"></div>
@@ -1053,15 +1223,15 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number" id="challengesCount">3</div>
-                    <div class="stat-label">Active Challenges</div>
+                    <div class="stat-label">Active Deep Dives</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="myChallengesCount">2</div>
-                    <div class="stat-label">My Challenges</div>
+                    <div class="stat-label">My Deep Dives</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number" id="teamSize">47</div>
-                    <div class="stat-label">Team Members</div>
+                    <div class="stat-label">Sharks in School</div>
                 </div>
             </div>
             <div class="grid" id="challengesGrid"></div>
@@ -1072,18 +1242,18 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        <div class="card-title">Your Skills</div>
+                        <div class="card-title">Your Hunting Grounds</div>
                         <div class="card-subtitle">Track your technical expertise</div>
                     </div>
                 </div>
                 <div class="skill-tags" id="mySkillsList"></div>
-                <button class="button secondary">+ Add New Skill</button>
+                <button class="button secondary">+ Track New Skill</button>
             </div>
         </div>
 
         <div id="findPeopleTab" class="tab-content">
             <div class="search-box">
-                <input type="text" class="search-input" id="searchPeople" placeholder="Search by skill (e.g., React, Azure, Python)...">
+                <input type="text" class="search-input" id="searchPeople" placeholder="Search the school by skill (e.g., React, Azure, Python)...">
             </div>
             <div class="people-list" id="peopleList"></div>
         </div>
@@ -1092,14 +1262,14 @@
             <div class="card" style="margin-bottom: 20px;">
                 <div class="card-header">
                     <div>
-                        <div class="card-title">Create New Challenge</div>
-                        <div class="card-subtitle">Encourage your team to learn new skills</div>
+                        <div class="card-title">Create New Deep Dive</div>
+                        <div class="card-subtitle">Encourage your school to learn new skills</div>
                     </div>
                 </div>
-                <button class="button primary" onclick="showCreateChallengeModal()">+ Create Challenge</button>
+                <button class="button primary" onclick="showCreateChallengeModal()">+ Create Deep Dive</button>
             </div>
             <div class="card">
-                <div class="card-title" style="margin-bottom: 16px;">Challenge Analytics</div>
+                <div class="card-title" style="margin-bottom: 16px;">Deep Dive Analytics</div>
                 <div id="adminAnalytics"></div>
             </div>
         </div>
@@ -1153,108 +1323,186 @@
                 az200Plus: 20  // SSW needs 20 AZ-200+ (Associate, Expert, Specialty) certifications
             },
             activityFeed: [
-                { type: 'cert', name: 'Adam Cogan', initials: 'AC', cert: 'AZ-400', title: 'DevOps Engineer Expert', time: '2 hours ago', likes: 12, liked: false },
-                { type: 'cert', name: 'Piers Sinclair', initials: 'PS', cert: 'AI-900', title: 'Azure AI Fundamentals', time: '4 hours ago', likes: 8, liked: false },
-                { type: 'skill', name: 'Sam Wagner', initials: 'SW', skill: 'Blazor', level: 'Expert', time: '5 hours ago', likes: 15, liked: true },
-                { type: 'skill', name: 'Adam Stephensen', initials: 'AS', skill: 'Vibe Code', level: null, time: '1 day ago', likes: 23, liked: false },
-                { type: 'cert', name: 'Matt Goldman', initials: 'MG', cert: 'AZ-305', title: 'Azure Solutions Architect Expert', time: '1 day ago', likes: 18, liked: false },
-                { type: 'skill', name: 'Bryden Oliver', initials: 'BO', skill: 'GitHub Copilot', level: 'Advanced', time: '2 days ago', likes: 14, liked: false },
-                { type: 'cert', name: 'Gordon Beeming', initials: 'GB', cert: 'SC-900', title: 'Security Fundamentals', time: '2 days ago', likes: 9, liked: false },
-                { type: 'skill', name: 'Luke Cook', initials: 'LC', skill: 'TypeScript', level: 'Expert', time: '3 days ago', likes: 11, liked: false },
-                { type: 'cert', name: 'William Liebenberg', initials: 'WL', cert: 'AZ-204', title: 'Azure Developer Associate', time: '3 days ago', likes: 16, liked: false },
-                { type: 'skill', name: 'Jerwin Parker', initials: 'JP', skill: 'React Native', level: 'Intermediate', time: '4 days ago', likes: 7, liked: false }
+                { type: 'skill', name: 'William Liebenberg', initials: 'WL', skill: 'Azure Service Bus Topics', level: 'Expert', time: '1 hour ago', likes: 18, liked: false },
+                { type: 'skill', name: 'Tom Nelson', initials: 'TN', skill: 'Next.js 15 Partial Prerendering', level: 'Advanced', time: '2 hours ago', likes: 15, liked: true },
+                { type: 'cert', name: 'Adam Cogan', initials: 'AC', cert: 'AZ-400', title: 'DevOps Engineer Expert', time: '3 hours ago', likes: 22, liked: false },
+                { type: 'skill', name: 'Kevin Miller', initials: 'KM', skill: 'AWS EKS Auto Scaling', level: 'Advanced', time: '4 hours ago', likes: 12, liked: false },
+                { type: 'skill', name: 'Luke Cook', initials: 'LC', skill: 'NestJS Microservices', level: 'Advanced', time: '5 hours ago', likes: 14, liked: false },
+                { type: 'cert', name: 'Piers Sinclair', initials: 'PS', cert: 'AI-900', title: 'Azure AI Fundamentals', time: '6 hours ago', likes: 19, liked: false },
+                { type: 'skill', name: 'Michael Davies', initials: 'MD', skill: 'SQL Server Query Optimization', level: 'Expert', time: '8 hours ago', likes: 16, liked: false },
+                { type: 'skill', name: 'Gordon Beeming', initials: 'GB', skill: 'Terraform AWS Modules', level: 'Advanced', time: '10 hours ago', likes: 13, liked: false },
+                { type: 'cert', name: 'Matt Goldman', initials: 'MG', cert: 'AZ-305', title: 'Azure Solutions Architect Expert', time: '1 day ago', likes: 25, liked: false },
+                { type: 'skill', name: 'Bryden Oliver', initials: 'BO', skill: '.NET 8 Source Generators', level: 'Advanced', time: '1 day ago', likes: 17, liked: false },
+                { type: 'skill', name: 'Sam Wagner', initials: 'SW', skill: 'Redis Pub/Sub', level: 'Advanced', time: '2 days ago', likes: 14, liked: false },
+                { type: 'cert', name: 'William Liebenberg', initials: 'WL', cert: 'AZ-204', title: 'Azure Developer Associate', time: '2 days ago', likes: 20, liked: false },
+                { type: 'skill', name: 'Jerwin Parker', initials: 'JP', skill: 'MongoDB Atlas', level: 'Intermediate', time: '3 days ago', likes: 11, liked: false },
+                { type: 'skill', name: 'Fiona Davis', initials: 'FD', skill: 'Azure Logic Apps', level: 'Advanced', time: '3 days ago', likes: 10, liked: false }
             ],
             newActivityQueue: [
-                { type: 'skill', name: 'Tom Nelson', initials: 'TN', skill: 'Next.js 14', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Tom Nelson', initials: 'TN', skill: 'Next.js 15 Server Components', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Michael Davies', initials: 'MD', skill: 'Azure Service Bus', level: 'Expert', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Kevin Miller', initials: 'KM', skill: 'AWS EKS', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'William Liebenberg', initials: 'WL', skill: 'SQL Server Performance Tuning', level: 'Expert', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Luke Cook', initials: 'LC', skill: 'NestJS', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
                 { type: 'cert', name: 'Lisa Thompson', initials: 'LT', cert: 'DP-900', title: 'Azure Data Fundamentals', time: 'Just now', likes: 0, liked: false },
-                { type: 'skill', name: 'Kevin Miller', initials: 'KM', skill: 'Kubernetes', level: 'Intermediate', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Gordon Beeming', initials: 'GB', skill: 'Terraform on AWS', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
                 { type: 'cert', name: 'Chris Miller', initials: 'CM', cert: 'PL-300', title: 'Power BI Data Analyst', time: 'Just now', likes: 0, liked: false },
-                { type: 'skill', name: 'Fiona Davis', initials: 'FD', skill: 'Power Automate', level: 'Expert', time: 'Just now', likes: 0, liked: false },
-                { type: 'skill', name: 'Michael Davies', initials: 'MD', skill: 'Machine Learning', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Fiona Davis', initials: 'FD', skill: 'Azure Functions', level: 'Intermediate', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Bryden Oliver', initials: 'BO', skill: '.NET 8 Minimal APIs', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Jerwin Parker', initials: 'JP', skill: 'Express.js Middleware', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Tom Nelson', initials: 'TN', skill: 'Redis Caching', level: 'Intermediate', time: 'Just now', likes: 0, liked: false },
                 { type: 'cert', name: 'Tom Nelson', initials: 'TN', cert: 'AZ-900', title: 'Azure Fundamentals', time: 'Just now', likes: 0, liked: false },
-                { type: 'skill', name: 'Piers Sinclair', initials: 'PS', skill: 'Clean Architecture', level: 'Expert', time: 'Just now', likes: 0, liked: false },
-                { type: 'skill', name: 'Bryden Oliver', initials: 'BO', skill: 'Rust', level: 'Beginner', time: 'Just now', likes: 0, liked: false },
-                { type: 'cert', name: 'Adam Stephensen', initials: 'AS', cert: 'AZ-104', title: 'Azure Administrator Associate', time: 'Just now', likes: 0, liked: false }
+                { type: 'skill', name: 'Matt Goldman', initials: 'MG', skill: 'Cosmos DB', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Kevin Miller', initials: 'KM', skill: 'Kubernetes Operators', level: 'Advanced', time: 'Just now', likes: 0, liked: false },
+                { type: 'cert', name: 'Adam Stephensen', initials: 'AS', cert: 'AZ-104', title: 'Azure Administrator Associate', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'Luke Cook', initials: 'LC', skill: 'GraphQL Federation', level: 'Intermediate', time: 'Just now', likes: 0, liked: false },
+                { type: 'skill', name: 'William Liebenberg', initials: 'WL', skill: 'Microservices Architecture', level: 'Expert', time: 'Just now', likes: 0, liked: false }
             ],
             profileMarkdown: `# About Me
 
 I'm a Full Stack Developer at SSW with a passion for building modern, scalable web applications and helping teams leverage cutting-edge technologies.
 
 ## Current Focus
-- Leading Next.js 14 adoption across client projects
-- Exploring Azure AI services and integration patterns
-- Mentoring team members on GitHub Copilot best practices
+- Leading Next.js 15 adoption with server components and streaming
+- Building microservices with Azure Service Bus and AWS EKS
+- Implementing real-time data pipelines with SQL Server and Redis
 
 ## Technical Expertise
-- **Frontend**: React, TypeScript, Next.js
-- **Backend**: Node.js, .NET, C#
-- **Cloud & DevOps**: Azure, Docker, GitHub Actions
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS
+- **Backend**: Node.js, .NET 8, C#, Express, NestJS
+- **Databases**: SQL Server, PostgreSQL, MongoDB, Redis, Cosmos DB
+- **Cloud & Infrastructure**: Azure (Service Bus, Functions, AKS), AWS (EKS, Lambda, SQS), Docker, Kubernetes
+- **DevOps**: GitHub Actions, Azure DevOps, Terraform, ArgoCD
 
 ## Side Projects & Learning
-Currently diving deep into Azure AI Fundamentals and exploring how AI can enhance developer productivity and user experiences.`,
+Currently exploring event-driven architectures with Azure Service Bus, optimizing container orchestration with AWS EKS, and building high-performance APIs with SQL Server.`,
             challenges: [
                 {
                     id: 1,
-                    title: 'Azure AI Fundamentals',
-                    description: 'Learn Azure AI services - a strategic priority for 2025',
+                    title: 'Next.js 15 & React Server Components',
+                    description: 'Master the latest Next.js with streaming, server actions, and partial prerendering',
                     priority: 'hot',
-                    participants: ['MD', 'JK', 'LT', 'BR', 'AS'],
-                    userAccepted: false,
-                    related: ['Azure', 'Python', 'Machine Learning'],
-                    mentors: ['Michael Davies', 'Lisa Thompson']
+                    participants: ['SW', 'TN', 'PG', 'LC', 'JP'],
+                    userAccepted: true,
+                    related: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vercel'],
+                    guides: ['Sam Wagner', 'Tom Nelson', 'Luke Cook']
                 },
                 {
                     id: 2,
-                    title: 'Next.js 14 & Server Components',
-                    description: 'Master the latest React framework for our client projects',
+                    title: 'Azure Service Bus & Event-Driven Architecture',
+                    description: 'Build scalable microservices with message queues and pub/sub patterns',
                     priority: 'hot',
-                    participants: ['SW', 'TN', 'PG'],
-                    userAccepted: true,
-                    related: ['React', 'TypeScript', 'JavaScript'],
-                    mentors: ['Sam Wagner', 'Tom Nelson']
+                    participants: ['MD', 'KM', 'WL', 'AS'],
+                    userAccepted: false,
+                    related: ['Azure', 'C#', '.NET', 'Microservices', 'RabbitMQ'],
+                    guides: ['Michael Davies', 'William Liebenberg']
                 },
                 {
                     id: 3,
-                    title: 'GitHub Copilot Enterprise',
-                    description: 'Become proficient with AI pair programming',
-                    priority: 'new',
-                    participants: ['SW', 'KM', 'RJ', 'HW'],
-                    userAccepted: true,
-                    related: ['VS Code', 'Git'],
-                    mentors: ['Sam Wagner', 'Kevin Miller']
+                    title: 'AWS EKS & Kubernetes Orchestration',
+                    description: 'Deploy and manage containerized apps on AWS Elastic Kubernetes Service',
+                    priority: 'hot',
+                    participants: ['KM', 'BO', 'GB'],
+                    userAccepted: false,
+                    related: ['AWS', 'Kubernetes', 'Docker', 'Terraform', 'Helm'],
+                    guides: ['Kevin Miller', 'Gordon Beeming']
                 },
                 {
                     id: 4,
-                    title: 'Power Platform Solutions',
-                    description: 'Build low-code solutions for internal tools',
+                    title: 'SQL Server Performance Tuning',
+                    description: 'Optimize queries, indexes, and database design for high-performance applications',
+                    priority: 'hot',
+                    participants: ['MD', 'SW', 'MG'],
+                    userAccepted: true,
+                    related: ['SQL Server', 'T-SQL', 'Database Design', 'Azure SQL'],
+                    guides: ['Michael Davies', 'Matt Goldman']
+                },
+                {
+                    id: 5,
+                    title: 'GitHub Copilot Enterprise',
+                    description: 'Become proficient with AI pair programming and workspace context',
                     priority: 'new',
-                    participants: ['CM', 'FD'],
+                    participants: ['SW', 'KM', 'RJ', 'HW', 'PS'],
+                    userAccepted: true,
+                    related: ['VS Code', 'Git', 'GitHub', 'AI'],
+                    guides: ['Sam Wagner', 'Piers Sinclair']
+                },
+                {
+                    id: 6,
+                    title: 'Redis Caching Strategies',
+                    description: 'Implement distributed caching and real-time data with Redis',
+                    priority: 'new',
+                    participants: ['TN', 'WL'],
                     userAccepted: false,
-                    related: ['PowerApps', 'Power Automate', 'SharePoint'],
-                    mentors: ['Chris Miller', 'Fiona Davis']
+                    related: ['Redis', 'Node.js', '.NET', 'Caching', 'Performance'],
+                    guides: ['Tom Nelson', 'William Liebenberg']
+                },
+                {
+                    id: 7,
+                    title: 'Azure Functions & Serverless',
+                    description: 'Build cost-effective serverless solutions with Azure Functions and Logic Apps',
+                    priority: 'new',
+                    participants: ['AS', 'AC', 'FD'],
+                    userAccepted: false,
+                    related: ['Azure', 'C#', 'Node.js', 'Serverless', 'Event Grid'],
+                    guides: ['Adam Cogan', 'Adam Stephensen']
+                },
+                {
+                    id: 8,
+                    title: 'NestJS Backend Development',
+                    description: 'Build enterprise-grade Node.js applications with NestJS framework',
+                    priority: 'new',
+                    participants: ['LC', 'JP'],
+                    userAccepted: false,
+                    related: ['Node.js', 'TypeScript', 'NestJS', 'Express', 'REST API'],
+                    guides: ['Luke Cook', 'Jerwin Parker']
                 }
             ],
             mySkills: [
-                { name: 'React', level: 5, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
-                { name: 'TypeScript', level: 5, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
-                { name: 'Next.js', level: 4, lastUsed: '2024-10-15', stale: false, tier: 'automatic' },
-                { name: 'Azure', level: 4, lastUsed: '2024-09-20', stale: false, tier: 'certified', certSource: 'AZ-104, AI-900' },
-                { name: 'Node.js', level: 5, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
-                { name: 'Git', level: 5, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
-                { name: 'PowerApps', level: 3, lastUsed: '2023-08-15', stale: true, tier: 'automatic' },
-                { name: 'SQL Server', level: 4, lastUsed: '2024-10-01', stale: false, tier: 'automatic' },
-                { name: 'C#', level: 4, lastUsed: '2024-08-10', stale: false, tier: 'automatic' },
-                { name: '.NET', level: 4, lastUsed: '2024-08-10', stale: false, tier: 'automatic' },
-                { name: 'Docker', level: 3, lastUsed: '2024-09-05', stale: false, tier: 'automatic' },
-                { name: 'GitHub Actions', level: 4, lastUsed: '2024-10-20', stale: false, tier: 'certified', certSource: 'GitHub OSS Contributions' }
+                { name: 'React', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'TypeScript', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'Next.js', level: 5, lastUsed: '2024-11-18', stale: false, tier: 'verified' },
+                { name: 'Azure', level: 4, lastUsed: '2024-11-15', stale: false, tier: 'certified', certSource: 'AZ-104, AI-900' },
+                { name: 'Azure Service Bus', level: 3, lastUsed: '2024-11-10', stale: false, tier: 'automatic' },
+                { name: 'AWS', level: 3, lastUsed: '2024-11-12', stale: false, tier: 'automatic' },
+                { name: 'AWS EKS', level: 3, lastUsed: '2024-11-12', stale: false, tier: 'automatic' },
+                { name: 'Node.js', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'NestJS', level: 4, lastUsed: '2024-11-18', stale: false, tier: 'automatic' },
+                { name: 'Express', level: 5, lastUsed: '2024-11-15', stale: false, tier: 'automatic' },
+                { name: 'SQL Server', level: 4, lastUsed: '2024-11-19', stale: false, tier: 'verified' },
+                { name: 'PostgreSQL', level: 4, lastUsed: '2024-11-10', stale: false, tier: 'automatic' },
+                { name: 'MongoDB', level: 4, lastUsed: '2024-11-05', stale: false, tier: 'automatic' },
+                { name: 'Redis', level: 4, lastUsed: '2024-11-18', stale: false, tier: 'automatic' },
+                { name: 'Cosmos DB', level: 3, lastUsed: '2024-10-20', stale: false, tier: 'automatic' },
+                { name: 'C#', level: 4, lastUsed: '2024-11-08', stale: false, tier: 'automatic' },
+                { name: '.NET 8', level: 4, lastUsed: '2024-11-08', stale: false, tier: 'automatic' },
+                { name: 'Docker', level: 4, lastUsed: '2024-11-17', stale: false, tier: 'automatic' },
+                { name: 'Kubernetes', level: 3, lastUsed: '2024-11-12', stale: false, tier: 'automatic' },
+                { name: 'Terraform', level: 3, lastUsed: '2024-11-05', stale: false, tier: 'automatic' },
+                { name: 'GitHub Actions', level: 5, lastUsed: '2024-11-19', stale: false, tier: 'certified', certSource: 'GitHub OSS Contributions' },
+                { name: 'Azure DevOps', level: 4, lastUsed: '2024-10-28', stale: false, tier: 'automatic' },
+                { name: 'Tailwind CSS', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'GraphQL', level: 4, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
+                { name: 'REST API', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'Azure Functions', level: 3, lastUsed: '2024-10-15', stale: false, tier: 'automatic' },
+                { name: 'AWS Lambda', level: 3, lastUsed: '2024-11-01', stale: false, tier: 'automatic' },
+                { name: 'RabbitMQ', level: 2, lastUsed: '2024-09-10', stale: false, tier: 'automatic' },
+                { name: 'Git', level: 5, lastUsed: '2024-11-20', stale: false, tier: 'automatic' },
+                { name: 'PowerApps', level: 3, lastUsed: '2023-08-15', stale: true, tier: 'automatic' }
             ],
             people: [
-                { name: 'Michael Davies', initials: 'MD', role: 'Senior Developer', skills: ['Azure', 'C#', '.NET', 'Python', 'Machine Learning'] },
-                { name: 'Lisa Thompson', initials: 'LT', role: 'Solution Architect', skills: ['Azure', 'Azure AI', 'Python', 'React', 'TypeScript'] },
-                { name: 'Tom Nelson', initials: 'TN', role: 'Full Stack Developer', skills: ['React', 'Next.js', 'TypeScript', 'Node.js', 'MongoDB'] },
-                { name: 'Kevin Miller', initials: 'KM', role: 'DevOps Engineer', skills: ['Azure', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform'] },
-                { name: 'Chris Miller', initials: 'CM', role: 'Business Analyst', skills: ['PowerApps', 'Power Automate', 'SharePoint', 'Power BI'] },
-                { name: 'Fiona Davis', initials: 'FD', role: 'Low-Code Developer', skills: ['PowerApps', 'Power Automate', 'Dynamics 365', 'Azure'] }
+                { name: 'Michael Davies', initials: 'MD', role: 'Senior Developer', skills: ['Azure', 'Azure Service Bus', 'C#', '.NET 8', 'SQL Server', 'Microservices', 'Python', 'Machine Learning'] },
+                { name: 'Lisa Thompson', initials: 'LT', role: 'Solution Architect', skills: ['Azure', 'Azure AI', 'Python', 'React', 'Next.js', 'TypeScript', 'Cosmos DB'] },
+                { name: 'Tom Nelson', initials: 'TN', role: 'Full Stack Developer', skills: ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'MongoDB', 'Redis', 'PostgreSQL'] },
+                { name: 'Kevin Miller', initials: 'KM', role: 'DevOps Engineer', skills: ['AWS', 'AWS EKS', 'Azure', 'Azure AKS', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'ArgoCD'] },
+                { name: 'Chris Miller', initials: 'CM', role: 'Business Analyst', skills: ['PowerApps', 'Power Automate', 'SharePoint', 'Power BI', 'SQL Server'] },
+                { name: 'Fiona Davis', initials: 'FD', role: 'Low-Code Developer', skills: ['PowerApps', 'Power Automate', 'Dynamics 365', 'Azure', 'Azure Functions'] },
+                { name: 'William Liebenberg', initials: 'WL', role: 'Principal Developer', skills: ['Azure', 'C#', '.NET 8', 'Azure Service Bus', 'Redis', 'SQL Server', 'Microservices'] },
+                { name: 'Luke Cook', initials: 'LC', role: 'Full Stack Developer', skills: ['TypeScript', 'React', 'Next.js', 'Node.js', 'NestJS', 'GraphQL', 'PostgreSQL'] },
+                { name: 'Jerwin Parker', initials: 'JP', role: 'Mobile & Backend Dev', skills: ['React Native', 'Node.js', 'Express', 'MongoDB', 'REST API'] },
+                { name: 'Gordon Beeming', initials: 'GB', role: 'DevOps Lead', skills: ['Azure DevOps', 'GitHub Actions', 'Docker', 'Kubernetes', 'Terraform', 'Security'] },
+                { name: 'Bryden Oliver', initials: 'BO', role: 'Senior Developer', skills: ['C#', '.NET 8', 'Azure', 'SQL Server', 'Docker', 'GitHub Copilot'] },
+                { name: 'Matt Goldman', initials: 'MG', role: 'Solution Architect', skills: ['.NET 8', 'Azure', 'SQL Server', 'Azure Functions', 'Cosmos DB'] }
             ]
         };
 
@@ -1417,10 +1665,10 @@ Currently diving deep into Azure AI Fundamentals and exploring how AI can enhanc
             }
             
             peopleList.innerHTML = filteredPeople.map(person => `
-                <div class="person-card">
-                    <div class="person-avatar">${person.initials}</div>
+                <div class="person-card" style="cursor: pointer;" onclick="showProfile('${person.name}')">
+                    <div class="person-avatar clickable-avatar">${person.initials}</div>
                     <div class="person-info">
-                        <div class="person-name">${person.name}</div>
+                        <div class="person-name clickable-name">${person.name}</div>
                         <div class="person-role">${person.role}</div>
                         <div class="skill-tags">
                             ${person.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
@@ -1566,7 +1814,7 @@ Currently diving deep into Azure AI Fundamentals and exploring how AI can enhanc
                     participants: [],
                     userAccepted: false,
                     related: skills,
-                    mentors: []
+                    guides: []
                 };
                 
                 appState.challenges.unshift(newChallenge);
@@ -1907,19 +2155,19 @@ Currently diving deep into Azure AI Fundamentals and exploring how AI can enhanc
                 let typeLabel = '';
                 
                 if (activity.type === 'cert') {
-                    typeLabel = 'earned a certification';
+                    typeLabel = 'acquired a hunting license';
                     detailsHtml = `
                         <div class="activity-details cert">
-                            <div class="activity-detail-title">🎓 ${activity.cert}</div>
+                            <div class="activity-detail-title">🎯 ${activity.cert}</div>
                             <div class="activity-detail-subtitle">${activity.title}</div>
                         </div>
                     `;
                 } else if (activity.type === 'skill') {
-                    typeLabel = activity.level ? `learned ${activity.skill} and is now ${activity.level}` : `learned "${activity.skill}"`;
+                    typeLabel = activity.level ? `learned ${activity.skill} and reached ${activity.level}` : `learned "${activity.skill}"`;
                     detailsHtml = `
                         <div class="activity-details skill">
-                            <div class="activity-detail-title">💡 ${activity.skill}</div>
-                            ${activity.level ? `<div class="activity-detail-subtitle">Level: ${activity.level}</div>` : ''}
+                            <div class="activity-detail-title">🦈 ${activity.skill}</div>
+                            ${activity.level ? `<div class="activity-detail-subtitle">Reached: ${activity.level}</div>` : ''}
                         </div>
                     `;
                 }
